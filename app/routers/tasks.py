@@ -104,7 +104,7 @@ def update_task(
     for field in ("title", "status", "priority"):
         if field in changes and changes[field] is None:
             raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                status_code=422,
                 detail=f"{field} cannot be null",
             )
 
