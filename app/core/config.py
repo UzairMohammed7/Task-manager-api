@@ -11,6 +11,9 @@ class Settings(BaseSettings):
     debug: bool = False
     database_url: str = "sqlite:///./task_manager.db"
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    secret_key: str                       # no default on purpose: app refuses to start without it
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 30
 
 
 @lru_cache
