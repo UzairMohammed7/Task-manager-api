@@ -1,0 +1,22 @@
+.venv/
+.git/
+.github/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local data must never be baked into an image
+.env
+*.db
+*.sqlite3
+
+# Not needed at runtime
+tests/
+requirements-dev.txt
+pytest.ini
+README.md
+.vscode/
+.idea/
