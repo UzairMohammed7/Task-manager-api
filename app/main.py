@@ -8,6 +8,7 @@ from app import models  # noqa: F401  (registers tables on Base.metadata)
 from app.core.config import get_settings
 from app.db.session import Base, engine
 from app.deps import DbSession
+from app.routers import auth, users
 
 settings = get_settings()
 
@@ -27,6 +28,8 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.include_router(auth.router)
+app.include_router(users.router)
 
 @app.get("/", tags=["health"])
 def hello() -> dict[str, str]:
